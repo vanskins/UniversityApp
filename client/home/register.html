@@ -1,0 +1,53 @@
+<template name="register">
+
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="home"}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Registration</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent class="padding"}}
+      <div class="card has-header">
+        <div class="list">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Student ID / Teacher ID</span>
+            <input type="tel" placeholder="2116406" id="txtID">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Full Name</span>
+            <input type="text" placeholder="John Paul Castillo" id="txtFullName" required>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">User Name (This will be used to login)</span>
+            <input type="text" placeholder="Suhr" id="txtUserName" required>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Password</span>
+            <input type="password" placeholder="******" id="txtPassword" required>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Confirm Password</span>
+            <input type="password" placeholder="******" id="txtConfPassword" required>
+          </label>
+        </div>
+      </div>
+      <div class="card">
+        <div class="row">
+          <div class="col col-50">
+            <button class="button button-block button-royal" id="btnRegStudent">
+              Student
+            </button>
+          </div>
+          <div class="col col-50">
+            <button class="button button-block button-energized" id="bnRegTeacher">
+              Teacher
+            </button>
+          </div>
+        </div>
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

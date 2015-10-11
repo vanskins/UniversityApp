@@ -1,0 +1,67 @@
+<template name="studentdashboardlayout">
+  {{#ionBody}}
+  {{#unless connected}}
+    {{> notifications}}
+  {{/unless}}
+    {{#ionSideMenuContainer}}
+      {{#ionSideMenus}}
+        {{#ionSideMenu}}
+          <div class="bar bar-header bar-dark">
+            <h1 class="title">Student Dashboard</h1>
+          </div>
+          <div class="content has-header">
+            <div class="list">
+              <div class="item item-avatar">
+                <img src="/img/venkman.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+              </div>
+              <div class="item item-icon-right" id="sideHome" data-ion-menu-close>
+                Home {{> ionIcon icon="home"}}
+              </div>
+              <div class="item item-icon-right" id="sideSearch" data-ion-menu-close>
+                Search Class {{> ionIcon icon="search"}}
+              </div>
+              <div class="item item-icon-right" id="sideSchedule" data-ion-menu-close>
+                My Schedules {{> ionIcon icon="calendar"}}
+              </div>
+              <div class="item item-icon-right" id="sideStanding" data-ion-menu-close>
+                My Class Standing {{> ionIcon icon="clipboard"}}
+              </div>
+              <div class="item item-icon-right" id="sideSettings" data-ion-menu-close>
+                Settings {{> ionIcon icon="gear-b"}}
+              </div>
+              <div class="item item-icon-right" id="sideHelp" data-ion-menu-close>
+                Help {{> ionIcon icon="flag"}}
+              </div>
+              <div class="item item-icon-right" id="sideFAQ" data-ion-menu-close>
+                FAQ {{> ionIcon icon="help"}}
+              </div>
+              <div class="item item-icon-right" id="sideAbout" data-ion-menu-close>
+                ABOUT {{> ionIcon icon="information-circled"}}
+              </div>
+            </div>
+          </div>
+        {{/ionSideMenu}}
+        {{#ionSideMenu side="right"}}
+          <div class="bar bar-header bar-dark">
+            <h1 class="title">Right Menu</h1>
+          </div>
+          <div class="content has-header">
+            <div class="list">
+              <div class="item item-icon-left" id="btnLogout" data-ion-menu-close>
+                {{> ionIcon icon="ios-arrow-left"}} LogOut
+              </div>
+            </div>
+          </div>
+        {{/ionSideMenu}}
+      {{/ionSideMenus}}
+      {{#ionSideMenuContent}}
+        {{> ionNavBar class="bar-positive"}}
+        {{#ionNavView}}
+          {{> yield}}
+        {{/ionNavView}}
+      {{/ionSideMenuContent}}
+    {{/ionSideMenuContainer}}
+  {{/ionBody}}
+</template>

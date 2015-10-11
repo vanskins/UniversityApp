@@ -1,0 +1,11 @@
+<template name="homelayout">
+  {{#ionBody}}
+    {{> ionNavBar class="bar-royal"}}
+    {{#unless connected}}
+      {{> notifications}}
+    {{/unless}}
+      {{#ionNavView}}
+        {{>yield}}
+      {{/ionNavView}}
+  {{/ionBody}}
+</template>

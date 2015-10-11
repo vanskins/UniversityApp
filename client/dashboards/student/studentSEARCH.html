@@ -1,0 +1,26 @@
+<template name="studentdashboardSearch">
+  {{#contentFor "headerButtonLeft"}}
+    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+      {{> ionIcon icon='navicon'}}
+    </button>
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Search Class</h1>
+    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+      {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+      {{else}}
+        {{> ionIcon icon='navicon'}}
+      {{/if}}
+    </button>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="padding">
+        Search Class Content Here
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>
