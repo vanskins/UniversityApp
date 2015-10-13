@@ -1,7 +1,18 @@
+Template.studentdashboardlayout.onCreated(function(){
+  this.subscribe("profiles");
+});
+
 Template.studentdashboardlayout.helpers({
   connected: function(){
      return Meteor.status().connected;
-  }
+  },
+  profile: function(){
+    var profile = Profile.findOne({"metadata.owner": Meteor.userId()});
+    if(profile){
+      return profile;
+    }
+      return [];
+    }
 });
 
 Template.studentdashboardlayout.events({

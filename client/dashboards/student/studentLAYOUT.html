@@ -1,8 +1,10 @@
 <template name="studentdashboardlayout">
   {{#ionBody}}
+  <!-- Show That is not to connected to server -->
   {{#unless connected}}
     {{> notifications}}
   {{/unless}}
+  <!-- -->
     {{#ionSideMenuContainer}}
       {{#ionSideMenus}}
         {{#ionSideMenu}}
@@ -12,7 +14,7 @@
           <div class="content has-header">
             <div class="list">
               <div class="item item-avatar">
-                <img src="/img/venkman.jpg">
+                <img src="{{profile.url}}">
                 <h2>Pretty Hate Machine</h2>
                 <p>Nine Inch Nails</p>
               </div>

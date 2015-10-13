@@ -11,6 +11,8 @@ Meteor.startup(function(){
 });
 
 Meteor.methods({
+
+  // REGISTRATIONS 
   registerStudent: function(username, password, id, fullname,){
     studentDetails = {
       username: username,
@@ -25,11 +27,13 @@ Meteor.methods({
   },//registerStudent
   registerTeacher: function(token, username, password, id , fullname){
     var ifexist = Tokens.find({token: token, used: false}).count();
+    console.log(ifexist);
     if(ifexist === 1){
         regDetails = {
         username: username,
         password: password,
         profile: {
+          id: id,
           fullname: fullname
         }
       }
@@ -37,7 +41,7 @@ Meteor.methods({
         Roles.addUsersToRoles(id, 'teacher');
         Tokens.update({token: token}, {$set: {used: "true"}});
     }else{
-      throw new Meteor.Error("Invalid Token");
+      throw new Meteor.Error("invalid", "Invalid Token.");
     }
   },
   addTokens: function(token){
@@ -48,9 +52,15 @@ Meteor.methods({
         return rand(); // to make it longer
     };
     var token = token();
-    Tokens.insert({
-      token: token,
-      used: false
-    });
-  },
+    var auth = Meteor.user().roles[0];
+      if(auth != 'admin'){
+        throw new Meteor.Error("Access Denied");
+      }else if(auth == 'admin'){
+        Tokens.insert({
+          token: token,
+          used: false,
+          createdAt: new Date()
+        });
+      }
+  } // add tokens
 });

@@ -19,7 +19,43 @@
   {{#ionView}}
     {{#ionContent}}
       <div class="padding">
-        Teacher Create Class
+        <div class="card">
+          <div class="item item-text-wrap">
+            Create A Class
+          </div>
+        </div>
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Description</span>
+            <input type="text">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Section Code</span>
+            <input type="password">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Subject Code</span>
+            <input type="password">
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Schedule
+            </div>
+            <select>
+              <option selected>MWF</option>
+              <option>TTH</option>
+            </select>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              School Year
+            </div>
+            <select>
+              <option selected>2015-2016</option>
+              <option>2016-2017</option>
+            </select>
+          </label>
+        </div>
       </div>
     {{/ionContent}}
   {{/ionView}}

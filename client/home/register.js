@@ -79,11 +79,8 @@ Template.register.events({
             onOk: function(error, result){
               token = result;
               Meteor.call('registerTeacher', token, username, password, id, fullname, function(error){
-                if(error){
-                  title = "ERROR";
-                  button = "button button-assertive";
-                  template = error.reason;
-                  dialog(title, template, button);
+                if(error && error.error === 'invalid'){
+                  window.alert('Invalid Token');
                 }else{
                   title = "success";
                   template = "You can now login.";

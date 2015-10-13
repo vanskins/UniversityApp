@@ -19,3 +19,6 @@
 ul.notifications {
 position: fixed;
 }
+#profile_photo {
+  visibility: hidden;
+}
